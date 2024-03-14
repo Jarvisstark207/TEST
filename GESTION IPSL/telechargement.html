@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Télécharger un fichier</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers notre fichier CSS -->
+
+</head>
+<body>
+<div class="container">
+
+    <form action="upload.php" method="post">
+        <label for="username">Nom d'utilisateur:</label><br>
+        <input type="text" id="username" name="username"><br>
+        <label for="password">Mot de passe:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <input type="submit" value="Se connecter">
+    </form><br><br><br>
+
+
+    <p>Cliquez sur le lien pour télécharger le fichier :</p>
+    <a href="download.php">lien du telechargement</a>
+
+    <h1>Image de profil</h1>
+    <p>Cliquez sur le lien pour voir l'image :</p>
+    <a href="uploads/JARVIS.jpg" >Voir l'image</a>
+</div>
+</body>
+</html>
+

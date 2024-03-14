@@ -1,0 +1,389 @@
+/*@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;700&display=swap");
+*/
+:root {
+  --orange: #f60;
+  --black: #0b1b35;
+  --gray: #8a898e;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+li,
+button {
+  cursor: pointer;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Header start */
+header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  padding: 10px 100px 20px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; /* Ajoutez cette ligne pour spécifier la couleur de fond */
+  z-index: 1000; /* Assurez-vous que le header est au-dessus du reste du contenu */
+}
+
+header > .logo {
+  width: 230px;
+}
+
+.header2 {
+  width: 100%;
+  height: 100px;
+  padding: 50px 100px 10px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; 
+}
+.header2 > .logo {
+  width: 200px;
+}
+
+/* navbar start */
+
+.menu-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-right: 100px;
+}
+
+/* buttons login */
+
+.sign-buttons > .login {
+  border: none;
+  background: transparent;
+  padding: 0 20px;
+}
+
+.sign-buttons > .signup {
+  width: 100px;
+  height: 45px;
+  background: var(--orange);
+  border: none;
+  border-radius: 10px;
+
+  color: white;
+}
+
+/* header End */
+
+/* main */
+
+main {
+  padding: 50px 70px 100px 100px;
+}
+
+/* hero section start */
+.hero {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero > .images {
+  width: 45%;
+
+  height: 100%;
+  position: relative;
+}
+.hero > .images > img {
+  height: 100%;
+}
+
+.hero > .images > img:nth-child(1) {
+  position: absolute;
+  z-index: -1;
+  left: -200px;
+  bottom: -50px;
+}
+.hero > .images > img:nth-child(2) {
+  position: absolute;
+  height: 60%;
+  top: 50px;
+
+  left: -30px;
+  z-index: -1;
+}
+
+.hero > .title {
+  width: 50%;
+  padding-top: 30px;
+}
+.hero > .title > h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 60px;
+  text-wrap: wrap;
+  padding-right: 70px;
+}
+.hero > .title > p {
+  padding: 40px 0;
+}
+
+.hero > .title > .buttons > button,
+.card > button {
+  width: 100px;
+  height: 42px;
+  border: none;
+  margin-right: 10px;
+}
+.hero > .title > .buttons > button:nth-child(1),
+.card > button {
+  background-color: var(--orange);
+  color: white;
+  border-radius: 10px;
+}
+/* hero section end */
+
+/* service section */
+.service {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding-top: 150px;
+  padding-right: 30px;
+}
+
+.service > p {
+  color: var(--gray);
+  text-transform: uppercase;
+  word-spacing: normal;
+}
+.service > h2 {
+  font-size: 40px;
+  font: bold;
+}
+
+.service > .cards-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.service > .cards-container > .card {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  /* box-shadow: 2px 2px 5px 5px var(--gray); */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+.service > .cards-container > .card > i {
+  font-size: 50px;
+}
+.service > .cards-container > .card > h3 {
+  font-size: 30px;
+}
+
+.service > .second {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+}
+
+.service > .second > .img {
+  width: 60%;
+}
+.service > .second > .word {
+  width: 20%;
+}
+.service > .second > .word > p {
+  padding: 50px 0;
+  color: var(--gray);
+  line-height: 20px;
+}
+.service > .second > .word > button {
+  width: 100px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.service > .testimonails,
+.team {
+  margin-top: 150px;
+}
+.service > .testimonails > p,
+.team > p {
+  color: var(--gray);
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.service > .testimonails > h3,
+.team > h2 {
+  font-size: 40px;
+}
+.service > .testimonails > .tcard-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 100px;
+  flex-wrap: wrap;
+  gap: 50px;
+  padding: 50px;
+}
+.service > .testimonails > .tcard-container > .tcard {
+  display: flex;
+  width: 35%;
+  gap: 30px;
+
+  height: 150px;
+}
+.service > .testimonails > .tcard-container > .tcard > .image {
+  display: flex;
+  width: 60px;
+  height: 60px;
+}
+
+.service > .testimonails > .tcard-container > .tcard > .words {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: left;
+}
+
+.service > .testimonails > .tcard-container > .tcard > .words > p.name {
+  margin-top: 20px;
+  bottom: 0;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+.team {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.team > .container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+.team > .container > .card {
+  width: 30%;
+  border: 2px solid var(--gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+  border-radius: 10px;
+  gap: 40px;
+}
+
+.team > .container > .card > .image {
+  width: 100px;
+  height: 100px;
+}
+
+.team > .container > .card > p {
+  color: var(--gray);
+  text-transform: uppercase;
+}
+.team > .container > .card > p.name {
+  color: black;
+  text-transform: capitalize;
+}
+.team > .container > .card > .icons {
+  width: 100%;
+  border-top: 2px solid var(--gray);
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.team > .container > .card > .icons > i {
+  width: 30%;
+  padding: 15px;
+  color: var(--gray);
+  cursor: pointer;
+  border-right: 2px solid var(--gray);
+}
+
+.team > .container > .card > .icons > i:nth-child(3) {
+  border-right: none;
+}
+.news {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding-top: 100px;
+}
+
+.news > .image {
+  width: 35%;
+}
+
+.news > .in {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news > .in > input,
+.news > .in > button {
+  width: 100%;
+}
+
+input {
+  height: 40px;
+  box-shadow: 5px 5px 15px 5px var(--gray);
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+.news > .in > button {
+  background-color: var(--orange);
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+footer {
+  position: relative; /* Ou position: absolute; selon votre mise en page spécifique */
+ 
+  width: 100%;
+  height: 1px;
+  background-color: #f0f0f0; /* Changez la couleur de fond selon vos préférences */
+  padding: 20px 0;
+  text-align: center;
+}

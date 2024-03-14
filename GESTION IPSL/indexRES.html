@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Style pour le cadre de profil */
+    #cadre-profil {
+        width: 200px;
+        height: 200px;
+        border: 2px solid #000;
+        background: #ccc; /* Couleur de fond pour le cadre de profil vide */
+        background-size: cover;
+        background-position: center;
+    }
+  </style>
+
+</head>
+<body>
+  <div class=".cards-container">
+    <h2>Application de Gestion Des Etudiants de L'IPSL</h1><br><br><br>
+    </div>
+
+
+    <div class="container">
+
+    <section class="ajout-etudiant">
+      <h2>Ajouter un étudiant</h2>
+      <form action="ajout_etudiant.php" method="post">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required><br>
+
+        <label for="date_naissance">Date de naissance:</label>
+        <input type="date" id="date_naissance" name="date_naissance" required><br>
+
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" name="adresse" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="matricule">Matricule:</label>
+        <input type="text" id="matricule" name="matricule" required><br>
+
+        <input type="submit" value="Ajouter">
+      </form>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="recherche-etudiants">
+      <h2>Rechercher des étudiants</h2>
+      <form action="recherche_etudiant.php" method="post">
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom"><br>
+
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom"><br>
+
+        <label for="matricule">Matricule:</label>
+        <input type="text" id="matricule" name="matricule"><br>
+
+        <input type="submit" value="Rechercher">
+      </form>
+    </section>
+
+    </div>
+
+
+    <div class="container">
+    <section class="supprimer-etudiant">
+      <h2>Supprimer un étudiant</h2>
+      <form action="supprimer_etudiant.php" method="get">
+        <input type="text" name="matricule" placeholder="Matricule de l'étudiant à supprimer"><br>
+        <input type="submit" value="Supprimer">
+      </form>
+    </section>
+    </div>
+
+    <div class="container">
+    <section class="telecharger-fichier">
+      <h2>Télécharger un fichier</h2>
+      <p>Pour télécharger un fichier, veuillez vous connecter avec les identifiants suivants :</p>
+      <p>Nom d'utilisateur : jarvis</p>
+      <p>Mot de passe : pwd</p>
+
+      <p>Si vous êtes connecté, cliquez sur le lien ci-dessous pour télécharger le fichier :</p>
+      <a href="download.php">Télécharger</a>
+    </section>
+    </div>
+
+
+    <div class="container">
+    <section class="image-de-profil">
+      <h2>Image de profil</h2>
+      <div id="cadre-profil"></div> <!-- Cadre de profil -->
+      <p>Cliquez sur le lien ci-dessous pour voir l'image de profil :</p>
+      <!-- Lien pour télécharger et afficher l'image -->
+      <a href="#" onclick="telechargerEtAfficherImage()">Voir l'image</a>
+    </section>
+  </div>
+  </div>
+
+  <script>
+    // Fonction pour télécharger et afficher l'image
+    function telechargerEtAfficherImage() {
+      // Chemin vers le script PHP qui télécharge l'image
+      var urlTelechargement = "download.php";
+      
+      // Création d'une requête HTTP pour télécharger l'image
+      var requeteHTTP = new XMLHttpRequest();
+      requeteHTTP.open('GET', urlTelechargement, true);
+      requeteHTTP.responseType = 'blob'; // Réponse attendue : blob (données binaires)
+
+      // Gestion de la fin du chargement de la requête
+      requeteHTTP.onload = function() {
+        if (this.status === 200) {
+          // Si le téléchargement réussit
+          var donneesBinaires = this.response; // Récupérer les données binaires (blob)
+          var lecteurFichier = new FileReader();
+
+          // Gestion de la fin de la lecture du contenu de l'image
+          lecteurFichier.onload = function(e) {
+            var cadreProfil = document.getElementById('cadre-profil');
+            cadreProfil.style.backgroundImage = 'url(' + e.target.result + ')';
+          };
+
+          // Lecture du contenu de l'image en tant que URL de données
+          lecteurFichier.readAsDataURL(donneesBinaires);
+        }
+      };
+
+      // Envoi de la requête HTTP
+      requeteHTTP.send();
+
+      return false; // Empêcher le navigateur de suivre le lien
+    }
+  </script>
+  </div>
+</body>
+</html>

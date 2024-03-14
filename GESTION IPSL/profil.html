@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Image de profil</title>
+    <style>
+        /* Style pour le cadre de profil */
+        #cadre-profil {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            background: #ccc; /* Couleur de fond pour le cadre de profil vide */
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image de profil</h1>
+        <div id="cadre-profil"></div> <!-- Cadre de profil -->
+        <p>Cliquez sur le lien pour voir l'image :</p>
+        <!-- Lien pour télécharger et afficher l'image -->
+        <a href="#" onclick="telechargerEtAfficherImage()">Voir l'image</a>
+    </div>
+
+    <script>
+        // Fonction pour télécharger et afficher l'image
+        function telechargerEtAfficherImage() {
+            // Chemin vers le script PHP qui télécharge l'image
+            var urlTelechargement = "download.php";
+            
+            // Création d'une requête HTTP pour télécharger l'image
+            var requeteHTTP = new XMLHttpRequest();
+            requeteHTTP.open('GET', urlTelechargement, true);
+            requeteHTTP.responseType = 'blob'; // Réponse attendue : blob (données binaires)
+
+            // Gestion de la fin du chargement de la requête
+            requeteHTTP.onload = function() {
+                if (this.status === 200) {
+                    // Si le téléchargement réussit
+                    var donneesBinaires = this.response; // Récupérer les données binaires (blob)
+                    var lecteurFichier = new FileReader();
+
+                    // Gestion de la fin de la lecture du contenu de l'image
+                    lecteurFichier.onload = function(e) {
+                        var cadreProfil = document.getElementById('cadre-profil');
+                        cadreProfil.style.backgroundImage = 'url(' + e.target.result + ')';
+                    };
+
+                    // Lecture du contenu de l'image en tant que URL de données
+                    lecteurFichier.readAsDataURL(donneesBinaires);
+                }
+            };
+
+            // Envoi de la requête HTTP
+            requeteHTTP.send();
+
+            return false; // Empêcher le navigateur de suivre le lien
+        }
+    </script>
+</body>
+</html>
